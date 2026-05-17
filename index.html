@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Braggio Store</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="banner"></div>
+
+  <header class="store-header">
+    <div class="header-brand">
+      <img src="img/logo.png" class="main-logo" alt="Braggio Store" />
+      <div>
+        <h1>Braggio Store</h1>
+        <p>Pulseras tejidas a mano</p>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <button class="theme-btn" onclick="toggleTheme()" id="themeToggleBtn">Tema oscuro</button>
+    </div>
+  </header>
+
+  <nav class="top-menu">
+    <button class="nav-btn active" data-view-btn="catalog" onclick="setView('catalog')">Catálogo</button>
+    <button class="nav-btn" data-view-btn="favorites" onclick="setView('favorites')">
+      Favoritos <span class="mini-badge" id="favCount">0</span>
+    </button>
+    <button class="nav-btn" data-view-btn="cart" onclick="setView('cart')">
+      Carrito <span class="mini-badge" id="count">0</span>
+    </button>
+    <button class="nav-btn" data-view-btn="help" onclick="setView('help')">Ayuda</button>
+  </nav>
+
+  <div class="layout">
+    <aside class="filters-panel" id="filtersPanel">
+      <div class="filters-head">
+        <h3>Buscar y filtrar</h3>
+        <button class="panel-close mobile-only" onclick="closeFilters()">✖</button>
+      </div>
+
+      <label for="searchInput">Buscar</label>
+      <input id="searchInput" type="text" class="search-input" placeholder="Pulsera, versión, color..." oninput="updateSearch(this.value)" />
+
+      <label for="sortSelect">Ordenar por precio</label>
+      <select id="sortSelect" onchange="applyFilters()">
+        <option value="featured">Recomendados</option>
+        <option value="priceAsc">Menor precio</option>
+        <option value="priceDesc">Mayor precio</option>
+      </select>
+
+      <label for="colorSelect">Color</label>
+      <select id="colorSelect" onchange="applyFilters()">
+        <option value="all">Todos</option>
+        <option value="beige">Beige</option>
+        <option value="crema">Crema</option>
+        <option value="marron">Marrón</option>
+        <option value="negro">Negro</option>
+        <option value="rojo">Rojo</option>
+        <option value="rosa">Rosa</option>
+        <option value="verde">Verde</option>
+        <option value="azul">Azul</option>
+        <option value="amarillo">Amarillo</option>
+        <option value="blanco">Blanco</option>
+        <option value="celeste">Celeste</option>
+        <option value="lila">Lila</option>
+        <option value="dorado">Dorado</option>
+        <option value="naranja">Naranja</option>
+      </select>
+
+      <label for="designSelect">Diseño</label>
+      <select id="designSelect" onchange="applyFilters()">
+        <option value="all">Todos</option>
+        <option value="minimal">Minimal</option>
+        <option value="trenzado">Trenzado</option>
+        <option value="boho">Boho</option>
+        <option value="premium">Premium</option>
+        <option value="pareja">Pareja</option>
+      </select>
+
+      <label for="threadSelect">Cantidad de hilos</label>
+      <select id="threadSelect" onchange="applyFilters()">
+        <option value="all">Todos</option>
+        <option value="4">4 hilos</option>
+        <option value="5">5 hilos</option>
+        <option value="6">6 hilos</option>
+        <option value="7">7 hilos</option>
+        <option value="8">8 hilos</option>
+        <option value="9">9 hilos</option>
+        <option value="10">10 hilos</option>
+        <option value="11">11 hilos</option>
+        <option value="12">12 hilos</option>
+        <option value="13">13 hilos</option>
+        <option value="14">14 hilos</option>
+        <option value="15">15 hilos</option>
+        <option value="16">16 hilos</option>
+      </select>
+
+      <label for="offerSelect">Ofertas</label>
+      <select id="offerSelect" onchange="applyFilters()">
+        <option value="all">Todas</option>
+        <option value="offers">Solo ofertas</option>
+        <option value="withoutOffer">Sin oferta</option>
+      </select>
+
+      <label for="priceRange">Precio máximo: <span id="maxPriceLabel">S/ 120</span></label>
+      <input id="priceRange" type="range" min="5" max="50" value="50" oninput="updateMaxPrice(this.value)" />
+
+      <button class="clear-btn" onclick="clearFilters()">Limpiar filtros</button>
+
+      <div class="filter-info">
+        <p><strong>Consejo:</strong> usa los filtros para encontrar una pulsera más rápido.</p>
+      </div>
+    </aside>
+
+    <main class="content-panel">
+      <div class="toolbar">
+        <div>
+          <h2 id="viewTitle">Catálogo</h2>
+          <p id="viewSubtitle">Explora pulseras de macramé hechas a mano.</p>
+        </div>
+
+        <div class="toolbar-right" id="catalogControls">
+          <button class="secondary-btn filter-toggle mobile-only" onclick="openFilters()">Filtros</button>
+          <div class="results-chip" id="resultsCount">0 productos</div>
+        </div>
+      </div>
+
+      <div id="viewBody"></div>
+    </main>
+  </div>
+
+  <button class="floating-cart" onclick="setView('cart')">🛒 <span id="countFloat">0</span></button>
+
+  <div class="filters-backdrop" id="filtersBackdrop" onclick="closeFilters()"></div>
+
+  <div class="preview-modal" id="previewModal" onclick="closePreview()">
+    <div class="preview-box" onclick="event.stopPropagation()">
+      <div class="preview-header">
+        <div>
+          <h2 id="previewTitle"></h2>
+          <p id="previewSet" class="preview-set"></p>
+        </div>
+        <button onclick="closePreview()">✖</button>
+      </div>
+
+      <div class="preview-main">
+        <img id="previewMainImg" alt="Pulsera" />
+        <div class="preview-details">
+          <div id="previewBadges" class="preview-badges"></div>
+          <h3 id="previewPrice"></h3>
+          <p id="previewDesc"></p>
+
+          <div class="preview-row">
+            <span class="section-label">Etiquetas de color</span>
+            <div id="previewColorTags" class="color-tags"></div>
+          </div>
+
+          <div class="preview-row">
+            <span class="section-label">Versión seleccionable</span>
+            <div id="previewColors" class="color-list"></div>
+          </div>
+
+          <div class="preview-actions">
+            <button class="add-cart-btn" onclick="addSelectedToCart()">Agregar al carrito</button>
+            <button class="whatsapp-btn" onclick="buySelectedWhatsApp()">WhatsApp</button>
+            <button class="fav-btn" id="previewFavBtn" onclick="toggleSelectedFavorite()">♡ Favorito</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <h3>Braggio Store</h3>
+        <p>Pulseras artesanales con estilo, color y detalle.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p>Correo: <a href="mailto:braggiocollections@gmail.com">braggiocollections@gmail.com</a></p>
+        <p>Teléfono: <a href="tel:+51933299897">+51 933 299 897</a></p>
+        <p>WhatsApp: <a href="https://wa.me/51933299897" target="_blank" rel="noopener">Escríbenos</a></p>
+      </div>
+      <div>
+        <h4>Información</h4>
+        <p>Envíos a todo Perú</p>
+        <p>Pedidos personalizados</p>
+        <p>Pagos por Yape / Plin / transferencia</p>
+      </div>
+      <div>
+        <h4>Horario</h4>
+        <p>Lunes a sábado</p>
+        <p>10:00 a.m. - 7:00 p.m.</p>
+        <p>Respuesta en menos de 24 horas</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Braggio Store</span>
+      <span><a href="#">Términos</a> · <a href="#">Privacidad</a> · <a href="#">Cambios y devoluciones</a></span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
