@@ -12,112 +12,167 @@ const PRODUCT_TEMPLATE = [
     id: 1,
     name: "X001",
     price: 16,
-    design: "patron",
+    design: "llamativo",
     featured: true,
     threadCount: 12,
     closureType: "corredizo",
     offerPercent: 0,
-    description: "Pulsera suave y elegante con acabado artesanal. Tiene 12 hilos y cierre corredizo ajustable. Ideal para un look limpio y natural.",
+    description: "",
     variants: [c("Degrade de Rojo", ["blanco", "amarillo", "naranja", "rojo", "negro"], "T12-001-PAT.png", 14)]
   },
   {
     id: 2,
     name: "X002",
     price: 16,
-    design: "patron",
+    design: "llamativo",
     featured: true,
     threadCount: 12,
     closureType: "corredizo",
     offerPercent: 0,
-    description: "Diseño trenzado con textura delicada. Tiene 12 hilos y cierre corredizo ajustable. Combina perfecto con tonos neutros.",
+    description: "",
     variants: [c("Verde y Lila", ["verde", "negro", "lila"], "T12-002-PAT.png", 10)]
   },
   {
     id: 3,
     name: "X003",
     price: 14,
-    design: "patron",
+    design: "llamativo",
     featured: true,
     threadCount: 10,
     closureType: "corredizo",
     offerPercent: 0,
-    description: "Estilo boho con presencia visual y detalles que evocan movimiento y frescura. Tiene 10 hilos y cierre corredizo.",
+    description: "",
     variants: [
-      c("Rosa y Azul", ["azul", "rosa", "negro"], "T10-001-PAT.png", 9),
-      c("Morado y Amarillo", ["morado", "amarillo", "negro"], "T10-001-PAT-2.png", 7),
-      c("Verde y Celeste", ["celeste", "verde", "negro"], "T10-001-PAT-3.png", 7)
+      c("Rosa y Azul", ["azul", "celeste", "rosa", "fucsia", "negro"], "T10-001-PAT.png", 9),
+      c("Morado y Amarillo", ["morado", "lila", "amarillo", "negro"], "T10-001-PAT-2.png", 7),
+      c("Verde y Celeste", ["turquesa", "celeste", "verde", "lima", "negro"], "T10-001-PAT-3.png", 7)
     ]
   },
   {
     id: 4,
     name: "X004",
     price: 12,
-    design: "patron",
-    featured: false,
+    design: "casual",
+    featured: true,
     threadCount: 10,
     closureType: "corredizo",
     offerPercent: 20,
-    description: "Pulsera con acabado más fino y elegante. Tiene 10 hilos y cierre corredizo. Ideal para regalo o uso diario.",
+    description: "",
     variants: [c("Coffe", ["marron", "dorado"], "T10-002-PAT.png", 8)]
   },
   {
     id: 5,
     name: "X005",
     price: 12,
-    design: "patron",
+    design: "casual",
     featured: true,
     threadCount: 8,
     closureType: "corredizo",
     offerPercent: 0,
-    description: "Diseño cálido y muy combinable. Tiene 8 hilos y cierre corredizo.",
+    description: "",
     variants: [
-      c("Azulado", ["azul", "celeste"], "T08-001-PAT.png", 12),
-      c("Rojizo", ["rojo", "marron"], "T08-001-PAT-2.png", 12),
-      c("Morado", ["morado", "lila"], "T08-001-PAT-3.png", 12)
+      c("Bluish", ["azul", "celeste"], "T08-001-PAT.png", 12),
+      c("Reddish", ["rojo", "marron"], "T08-001-PAT-2.png", 12)
     ]
   },
   {
     id: 6,
     name: "X006",
     price: 10,
-    design: "patron",
+    design: "casual",
     featured: true,
     threadCount: 10,
     closureType: "corredizo",
     offerPercent: 0,
-    description: "Diseño cálido y muy combinable. Tiene 10 hilos y cierre corredizo.",
-    variants: [c("Pixel", ["azul", "verde", "rojo", "negro"], "T10-003-PAT.png", 11)]
+    description: "",
+    variants: [
+      c("Pixel", ["azul", "verde", "rojo", "negro"], "T10-003-PAT.png", 11)
+    ]
   },
   {
     id: 7,
     name: "X007",
     price: 10,
-    design: "patron",
+    design: "textura",
     featured: true,
     threadCount: 8,
     closureType: "corredizo",
     offerPercent: 0,
-    description: "Diseño cálido y muy combinable. Tiene 8 hilos y cierre corredizo.",
+    description: "",
     variants: [
-      c("Verde", ["verde"], "T08-002-PAT.png", 11),
-      c("Rojo", ["rojo"], "T08-002-PAT-2.png", 11),
-      c("Azul", ["azul"], "T08-002-PAT-3.png", 11)
+      c("Green", ["verde"], "T08-002-PAT.png", 11),
+      c("Red", ["rojo"], "T08-002-PAT-2.png", 11),
+      c("Blue", ["azul"], "T08-002-PAT-3.png", 11)
     ]
   },
   {
     id: 8,
     name: "X008",
     price: 5,
-    design: "patron",
+    design: "simple",
     featured: true,
     threadCount: 6,
     closureType: "corredizo",
     offerPercent: 0,
-    description: "Diseño cálido y muy combinable. Tiene 6 hilos y cierre corredizo.",
+    description: "",
     variants: [
-      c("Morado", ["morado"], "T06-001-PAT.png", 11),
-      c("Marron", ["marron"], "T06-001-PAT-2.png", 11),
-      c("Azul", ["azul"], "T06-001-PAT-3.png", 11)
+      c("PurpleGrade", ["morado", "lila"], "T06-001-PAT.png", 11)
+    ]
+  },
+  {
+    id: 9,
+    name: "X009",
+    price: 12,
+    design: "elegante",
+    featured: true,
+    threadCount: 8,
+    closureType: "corredizo",
+    offerPercent: 0,
+    description: "",
+    variants: [
+      c("GoldBlack", ["dorado", "negro"], "T08-003-PAT.png", 11)
+    ]
+  },
+  {
+    id: 10,
+    name: "X010",
+    price: 18,
+    design: "llamativo",
+    featured: true,
+    threadCount: 12,
+    closureType: "corredizo",
+    offerPercent: 0,
+    description: "",
+    variants: [
+      c("PinkGrade", ["rosa", "fucsia", "crema"], "T12-003-PAT.png", 11)
+    ]
+  },
+  {
+    id: 11,
+    name: "X011",
+    price: 5,
+    design: "elegante",
+    featured: true,
+    threadCount: 4,
+    closureType: "corredizo",
+    offerPercent: 0,
+    description: "",
+    variants: [
+      c("Pink", ["rosa"], "T04-001-PAT.png", 11)
+    ]
+  },
+  {
+    id: 12,
+    name: "X012",
+    price: 9,
+    design: "casual",
+    featured: true,
+    threadCount: 8,
+    closureType: "corredizo",
+    offerPercent: 0,
+    description: "",
+    variants: [
+      c("GrayGrade", ["negro", "gris", "blanco"], "T08-004-PAT.png", 11)
     ]
   }
 ];
@@ -150,7 +205,7 @@ const state = {
   design: "all",
   threads: "all",
   offer: "all",
-  maxPrice: 120,
+  maxPrice: 50,
   favorites: [],
   cart: [],
   theme: "light",
@@ -419,7 +474,7 @@ function clearFilters() {
   state.design = "all";
   state.threads = "all";
   state.offer = "all";
-  state.maxPrice = 120;
+  state.maxPrice = 50;
 
   const searchInput = document.getElementById("searchInput");
   const sortSelect = document.getElementById("sortSelect");
@@ -436,8 +491,8 @@ function clearFilters() {
   if (designSelect) designSelect.value = "all";
   if (threadSelect) threadSelect.value = "all";
   if (offerSelect) offerSelect.value = "all";
-  if (priceRange) priceRange.value = 120;
-  if (maxPriceLabel) maxPriceLabel.textContent = "S/ 120";
+  if (priceRange) priceRange.value = 50;
+  if (maxPriceLabel) maxPriceLabel.textContent = "S/ 50";
 
   updatePriceRangeVisual();
   render();

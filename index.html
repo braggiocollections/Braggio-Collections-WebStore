@@ -54,30 +54,34 @@
       <label for="colorSelect">Color</label>
       <select id="colorSelect" onchange="applyFilters()">
         <option value="all">Todos</option>
-        <option value="beige">Beige</option>
-        <option value="crema">Crema</option>
-        <option value="marron">Marrón</option>
-        <option value="negro">Negro</option>
-        <option value="rojo">Rojo</option>
-        <option value="rosa">Rosa</option>
-        <option value="verde">Verde</option>
         <option value="azul">Azul</option>
         <option value="amarillo">Amarillo</option>
-        <option value="blanco">Blanco</option>
-        <option value="celeste">Celeste</option>
-        <option value="lila">Lila</option>
-        <option value="dorado">Dorado</option>
+        <option value="rojo">Rojo</option>
+        <option value="verde">Verde</option>
         <option value="naranja">Naranja</option>
+        <option value="morado">Morado</option>
+        <option value="rosa">Rosa</option>
+        <option value="celeste">Celeste</option>
+        <option value="marron">Marron</option>
+        <option value="crema">Crema</option>
+        <option value="dorado">Dorado</option>
+        <option value="turquesa">Turquesa</option>
+        <option value="fucsia">Fucsia</option>
+        <option value="lila">Lila</option>
+        <option value="lima">Lima</option>
+        <option value="negro">Negro</option>
+        <option value="gris">Gris</option>
+        <option value="blanco">Blanco</option>
       </select>
 
-      <label for="designSelect">Diseño</label>
+      <label for="designSelect">Modelos</label>
       <select id="designSelect" onchange="applyFilters()">
         <option value="all">Todos</option>
-        <option value="minimal">Minimal</option>
-        <option value="trenzado">Trenzado</option>
-        <option value="boho">Boho</option>
-        <option value="premium">Premium</option>
-        <option value="pareja">Pareja</option>
+        <option value="simple">Simple</option>
+        <option value="casual">Casual</option>
+        <option value="textura">Textura</option>
+        <option value="llamativo">Llamativo</option>
+        <option value="elegante">Elegante</option>
       </select>
 
       <label for="threadSelect">Cantidad de hilos</label>
@@ -105,7 +109,7 @@
         <option value="withoutOffer">Sin oferta</option>
       </select>
 
-      <label for="priceRange">Precio máximo: <span id="maxPriceLabel">S/ 120</span></label>
+      <label for="priceRange">Precio máximo: <span id="maxPriceLabel">S/ 50</span></label>
       <input id="priceRange" type="range" min="5" max="50" value="50" oninput="updateMaxPrice(this.value)" />
 
       <button class="clear-btn" onclick="clearFilters()">Limpiar filtros</button>
@@ -150,6 +154,7 @@
         <img id="previewMainImg" alt="Pulsera" />
         <div class="preview-details">
           <div id="previewBadges" class="preview-badges"></div>
+          <span class="section-label">Precio</span>
           <h3 id="previewPrice"></h3>
           <p id="previewDesc"></p>
 
